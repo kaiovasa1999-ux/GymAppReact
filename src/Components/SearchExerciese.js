@@ -4,11 +4,11 @@ import { borderRadius, textTransform } from '@mui/material';
 import { exerciseOptions,fetchData} from '../utils/fetchData'
 import HorizontalScrollBarr from './HorizontalScrollBarr';
 
-const SearchExerciese = () => {
+const SearchExerciese = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const [search,setSearch] = useState('');
-  const [exercise,setExercises] = useState([])
   const [bodyParts,setBodyParts] = useState([]);
+
   useEffect (()=>{
     const fetchExercisesData= async () =>{
         const bodyPartData = 
@@ -69,7 +69,10 @@ const SearchExerciese = () => {
             >Searche </Button>
         </Box>
         <Box sx={{position: 'relative', width:'100%', p:'20px'}}>
-            <HorizontalScrollBarr data={bodyParts} />
+            <HorizontalScrollBarr data={bodyParts}
+             bodyPart={bodyParts}
+             setBodyPart={setBodyPart}
+            />
         </Box>
     </Stack>
   );
