@@ -4,6 +4,15 @@ import { borderRadius, textTransform } from '@mui/system';
 
 
 const SearchExerciese = () => {
+
+  const [search,setSearch] = useState('');
+
+//   const handleSearch = async () =>{
+//     if(search){
+//         // const exercisesData = await fetchData();
+
+//     }
+//   }
   return (
     <Stack alignItems='center' mt='37px'
     justifyContent='center' p='20px'>
@@ -19,8 +28,8 @@ const SearchExerciese = () => {
                 backgroundColor: '#fff' ,borderRadius:'40px'
             }}
             height ='70px'
-            value=''
-            onChange={(e) => {}}
+            value={search}
+            onChange={(e) => {setSearch(e.target.value.toLowerCase())}}
             placeholder='Searche exercises'
             type ='text'
             />
@@ -34,9 +43,9 @@ const SearchExerciese = () => {
                 height:'55px',
                 position:'absolute',
                 right:'0'
-            }}>
-                Searche
-            </Button>
+            }}
+            // onClikc={handleSearch}
+            >Searche </Button>
         </Box>
     </Stack>
   );
